@@ -99,3 +99,10 @@
 98. What are the trade-offs between using `Promise` and `async/await`?
 99. What is the difference between simple async programming and the RxJS approach?
 100. What are async collections and how can they improve developer experience?
+
+## Links
+
+- [❓ Сatalog of Interview Questions](https://github.com/tshemsedinov/Interview-Questions)
+- [🔁 Async 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/Async-2024.md)
+- [🚀 Node.js 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/NodeJS-2024.md)
+- [🤖 Self Assessment](https://github.com/HowProgrammingWorks/SelfAssessment)
