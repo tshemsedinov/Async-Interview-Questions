@@ -51,7 +51,8 @@
 49. Why do we have three sets of timers: in the global context (e.g., `setTimeout`), `node:timers`, and `node:timers.promises`?
 50. What promisified APIs do you know, and how can we manually promisify other APIs?
 51. Tell us about testing of asyncronous code.
-52. Why can't TypeScript describe async contracts in all aspects?53. How can we prevent memory leaks in async code?
+52. Why can't TypeScript describe async contracts in all aspects?
+53. How can we prevent memory leaks in async code?
 54. What are the best practices for managing concurrency in JavaScript?
 55. How can we use async/await with `EventEmitter`?
 56. What is the difference between `EventEmitter` and `EventTarget`?
