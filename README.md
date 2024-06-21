@@ -1,108 +1,109 @@
-# Asynchronous programming Interview Questions
+# Питання з асинхронного програмування для співбесід
 
-1. How can we write code to avoid blocking the event loop?
-2. How can we handle a blocked event loop to exit the blocking state from the same process?
-3. What is callback hell, and how can we avoid it?
-4. What are async generators and iterators, how do they work, and what are their use cases?
-5. How do we handle errors in async code?
-6. When does try/catch capture async errors and when does it not?
-7. Which async abstraction supports the `captureRejections` flag, and what is it for?
-8. How can we avoid losing steps in the stack trace and improve debugging and understanding of control flow using async/await?
-9. How can we cancell async operations?
-10. What is the difference between async contracts: callbacks, events, async/await, promises, etc.?
-11. How are async contracts (callbacks, events, async/await, promises) related, and is it possible to eliminate older ones?
-12. What is the difference between `Promise.all()` and `Promise.allSettled()`?
-13. What is the difference between `f2` and `f3` in the following expression: `promiseInstance.then(f1, f2).catch(f3)`?
-14. When and why might we have multiple catch clauses: `promiseInstance.catch(f1).catch(f2).catch(f3)`?
-15. Why do we have `Promise` method `finally`, and what are its use cases?
-16. How can we write async code with sync generators? What are the advantages and disadvantages of this approach?
-17. Provide examples of using `yield` in async programming. How to rewrite it in modern JavaScript?
-18. Describe the differences between Web Workers, Shared Workers, and Worker Threads.
-19. Describe microtasks and macrotasks and their relation to the event loop.
-20. What are Worker Threads in Node.js, and how might we use this technique?
-21. How can we measure I/O operations performance and resource usage?
-22. What are `process.hrtime` and `process.hrtime.bigint()`, and what is the difference?
-23. Tell us about the following Node.js API: `const { performance } = require('node:perf_hooks');`
-24. How can we efficiently handle asynchronous API requests at the client side that return large amounts of data?
-25. How can we efficiently handle API requests at the server side that return large amounts of data asynchronously?
-26. How can we ensure state isolation between different asynchronous requests in a single Node.js process?
-27. What is CLS (continuation local storage), and do we have a modern substitution for this async technique in Node.js?
-28. Which event loop phases are related to pending callbacks?
-29. Tell us about `Thenable` contract and its relation to `Promise`.
-30. How can we associate some state (collection or data structure) with the chain of async calls?
-31. How can we track the chain of async calls from external requests (originating from API call via HTTP, UDP, IPC, WebSocket)?
-32. How can we ensure safe processing of competing requests to a resource?
-33. Why do we need locks API, such as Web Locks?
-34. How can we use parallel programming primitives (semaphore, mutex, critical section, etc.) in async programming?
-35. Tell us about «Reactive programming» paradigm.
-36. What is the difference between streams and signals approaches in reactive programming?
-37. How can we handle and avoid deadlocks in asynchronous code?
-38. How can we ensure high availability in asynchronous applications?
-39. How can we handle asynchronous operations that depend on each other (parallel and sequential executions)?
-40. What is a race condition, and how can we avoid it?
-41. Provide use cases for `Promise.race`, `Promise.all`, and `Promise.allSettled`.
-42. What are throttling and debouncing in the context of asynchronous programming?
-43. How can we shape async calls (e.g., to limit request flow to an API)?
-44. What abstractions implementing the `Observable` pattern do we have in JavaScript for backend and frontend?
-45. Describe the `Signals` approach for reactive code.
-46. Why are `Streams` useful to improve code semantics as a high-level abstraction?
-47. What is back pressure?
-48. What is the difference between creating a `Stream` with `extends` vs. passing `read`, `write`, or `transform` function to a revealing constructor?
-49. Why do we have three sets of timers: in the global context (e.g., `setTimeout`), `node:timers`, and `node:timers.promises`?
-50. What promisified APIs do you know, and how can we manually promisify other APIs?
-51. Tell us about testing of asyncronous code.
-52. Why can't TypeScript describe async contracts in all aspects?53. How can we prevent memory leaks in async code?
-54. What are the best practices for managing concurrency in JavaScript?
-55. How can we use async/await with `EventEmitter`?
-56. What is the difference between `EventEmitter` and `EventTarget`?
-57. What is the role of the `await` keyword in async functions?
-58. What happens if we use `await` with non-promise values (or expressions)?
-59. How can we add timeouts in async operations (including `await` syntax)?
-60. What are the implications of the `process.nextTick` method?
-61. How can we create custom async iterables and what are their use cases?
-62. What are the advantages and disadvantages of using third-party async libraries like `Promise` polyfills and `async.js`?
-63. How can we handle async code in legacy systems?
-64. What is the difference between asynchronous, parallel, and I/O operations?
-65. How can we parallelize I/O operations effectively?
-66. How can we ensure thread safety in async programming?
-67. How are `Atomics` related to asynchronous and parallel programming? What are they used for?
-68. How can we optimize async code for performance?
-69. How can we handle retries (calls, calculations, resource access) in async programming?
-70. What are the common pitfalls of async programming?
-71. How can we use async functions with `Array.prototype.map`?
-72. How can we debug async code effectively?
-73. How can we ensure data consistency in async operations?
-74. What are the benefits of using `async/await` over callbacks?
-75. Which operations can't be rewritten from callbacks to `async/await` syntax (but are possible with `Promises`)?
-76. Propose use cases for `AbortSignal.timeout()`. Which well-known APIs support it?
-77. Where and for what purposes can we use `AbortSignal.any(iterable)`?
-78. What are the differences between `Promise` methods: `resolve` and `reject`?
-79. How can we handle errors in `Promise.all`?
-80. How can we chain async operations? (Please propose cases for as many contracts as you know)
-81. What is the role of the event loop in async programming?
-82. How can we handle long-running async operations? (Processes may exit, results may become obsolete, etc.)
-83. How can we ensure idempotency in async operations and when do we need it?
-84. Can we write a real-time application in JavaScript and asynchronous programming?
-85. How can we ensure the order of async operations? Please suggest cases in which we might experience problems.
-86. How can we handle async code in a high-availability system?
-87. What are observables and how can we use them in JavaScript?
-88. What are the main problems of handling state in asynchronous code in a stateful application?
-89. When can we use internal async queues and when do we need external queue systems?
-90. How can we use async functions with caching, memoization, and recalculations on state updates?
-91. How can we use async functions with database connections and what are the use cases?
-92. How can we separate async code from business logic and why might we want to do this?
-93. What is the impact of async code on CPU-bound vs I/O-bound operations?
-94. What are the security considerations in async programming?
-95. How can we implement a priority queue for async tasks?
-96. How can we use async functions with file system operations?
-97. How can we ensure atomicity in async operations and what for?
-98. What are the trade-offs between using `Promise` and `async/await`?
-99. What is the difference between simple async programming and the RxJS approach?
-100. What are async collections and how can they improve developer experience?
+1. Як ми можемо написати код, щоб уникнути блокування циклу подій?
+2. Як ми можемо вивести рантайм зі стану блокування циклу подій, з того самого процесу?
+3. Що таке «callback hell» і як ми можемо його уникнути?
+4. Що таке асинхронні генератори та ітератори, як вони працюють і які варіанти їх використання?
+5. Як ми обробляємо помилки в асинхронному коді?
+6. Коли try/catch хопає асинхронні помилки, а коли ні?
+7. Яка асинхронна абстракція підтримує флаг `captureRejections` і для чого він потрібен?
+8. Як ми можемо уникнути втрати кроків стек трейсу, покращити дебаг та розуміння потоку керування за допомогою async/await?
+9. Як ми можемо відмінити асинхронні операції?
+10. Яка різниця між асинхронними контрактами: callbacks, events, async/await, promises, тощо?
+11. Як пов’язані асинхронні контракти (callbacks, events, async/await, promises) і чи можна вивести з використання застарілі?
+12. Яка різниця між `Promise.all()` і `Promise.allSettled()`?
+13. Яка різниця між `f2` і `f3` у такому виразі: `promiseInstance.then(f1, f2).catch(f3)`?
+14. Коли і чому ми можемо мати кілька викликів catch: `promiseInstance.catch(f1).catch(f2).catch(f3)`?
+15. Чому ми маємо метод `Promise` `finally` і які можуть бути варіанти його використання?
+16. Як ми можемо написати асинхронний код за допомогою синхронних генераторів? Які переваги та недоліки цього підходу?
+17. Наведіть приклади використання `yield` в асинхронному програмуванні. Як це переписати на сучасному JavaScript?
+18. Опишіть відмінності між Web Workers, Shared Workers і Worker Threads.
+19. Розкажіть, що таке мікрозадачі та макрозадачі та який вони мають зв'язок із циклом подій?
+20. Що таке Worker Threads в Node.js і як ми можемо використовувати їх?
+21. Як ми можемо виміряти продуктивність I/O операцій та використання ними ресурсів?
+22. Що таке `process.hrtime` і `process.hrtime.bigint()`? В чому різниця?
+23. Розкажіть нам про такий API Node.js: `const { performance } = require('node:perf_hooks');`
+24. Як ми можемо ефективно обробляти асинхронні запити API на стороні клієнта, які повертають великі обсяги даних?
+25. Як ми можемо ефективно обробляти запити API на стороні сервера, які асинхронно повертають великі обсяги даних?
+26. Як ми можемо забезпечити ізоляцію стану між різними асинхронними запитами в одному процесі Node.js?
+27. Що таке CLS (continuation local storage) і чи є у нас сучасна заміна цій техніці в Node.js?
+28. Які фази циклу подій пов'язані з незавершеними зворотними викликами?
+29. Розкажіть про контракт `Thenable` і його відношення до `Promise`.
+30. Як ми можемо пов'язати дані (стан, колекції, структури даних) із ланцюгом асинхронних викликів?
+31. Як ми можемо відстежувати ланцюжок асинхронних викликів із зовнішніх запитів (які йдуть від виклику API через HTTP, UDP, IPC, WebSocket)?
+32. Як ми можемо забезпечити безпечну обробку конкуруючих запитів до ресурсу?
+33. Навіщо нам потрібні блокування, наприклад Web Locks?
+34. Як ми можемо використовувати примітиви паралельного програмування (semaphore, mutex, critical section тощо) в асинхронному програмуванні?
+35. Розкажіть про парадигму «Реактивного програмування».
+36. Яка різниця між підходами потоків та сигналів у реактивному програмуванні?
+37. Як ми можемо уникати deadlocks чи виходити з такого стану в асинхронному коді?
+38. Як ми можемо забезпечити високу доступність в асинхронних програмах?
+39. Як ми можемо обробляти асинхронні операції, які залежать одна від одної (паралельне та послідовне виконання)?
+40. Що таке «race condition», і як ми можемо цього уникати?
+41. Надайте випадки використання для `Promise.race`, `Promise.all` і `Promise.allSettled`.
+42. Що таке throttling та debouncing в контексті асинхронного програмування?
+43. Як ми можемо зашейпити (обмежити) асинхронні виклики (наприклад, щоб краще обробляти потік запитів до API)?
+44. Які абстракції, що реалізують шаблон `Observable`, ми маємо в JavaScript для серверної та зовнішньої частини?
+45. Опишіть підхід `Signals` для реактивного коду.
+46. Чому `Streams` корисні для покращення семантики коду як абстракції високого рівня?
+47. Що таке «back pressure»?
+48. Яка різниця між створенням `Stream` за допомогою `extends` і передачею функції `read`, `write` або `transform` до конструктору?
+49. Чому ми маємо три набори таймерів: у глобальному контексті (наприклад, `setTimeout`), `node:timers` і `node:timers.promises`?
+50. Які promisified API ви знаєте, і як ми можемо вручну promisify інші API?
+51. Розкажіть про тестування асинхронного коду.
+52. Чому TypeScript не може описати асинхронні контракти в усіх аспектах?
+53. Як ми можемо запобігти витокам пам'яті (memory leaks) в асинхронному коді?
+54. Які найкращі методи (best practices) керування паралелізмом у JavaScript?
+55. Як ми можемо використовувати async/await з `EventEmitter`?
+56. Яка різниця між `EventEmitter` і `EventTarget`?
+57. Яка роль ключового слова `await` в асинхронних функціях?
+58. Що станеться, якщо ми використаємо `await` не з `Promise` значеннями (або виразами)?
+59. Як ми можемо додати тайм-аути в асинхронних операціях (включаючи синтаксис `await`)?
+60. Для чого використовується метод `process.nextTick`?
+61. Як ми можемо створити власні асинхронні ітератори та які варіанти їх використання?
+62. Які переваги та недоліки використання асинхронних бібліотек сторонніх розробників, таких як поліфіли для `Promise` чи `async.js`?
+63. Як ми можемо працювати з асинхронним кодом у застарілих системах?
+64. Яка різниця між асинхронними, паралельними та I/O операціями?
+65. Як ми можемо ефективно розпаралелювати I/O операції?
+66. Як ми можемо забезпечити потоко-безпечність в асинхронному програмуванні?
+67. Як `Atomics` пов'язані з асинхронним і паралельним програмуванням? Для чого вони використовуються?
+68. Як ми можемо оптимізувати асинхронний код для продуктивності (performance)?
+69. Як ми можемо обробляти повтори (retries) викликів, обчислень, доступу до ресурсів в асинхронному програмуванні?
+70. Які типові підводні камені асинхронного програмування?
+71. Як ми можемо використовувати async/await функції з `Array.prototype.map`?
+72. Як ми можемо ефективно дебажити асинхронний код?
+73. Як ми можемо забезпечити узгодженість даних в асинхронних операціях?
+74. Які переваги використання `async/await` над зворотними викликами (callbacks)?
+75. Які операції не можна переписати з зворотних викликів (callbacks) на синтаксис `async/await` (але можливі з `Promises`)?
+76. Запропонуйте випадки використання для `AbortSignal.timeout()`. Які відомі API це підтримують?
+77. Де і для яких цілей ми можемо використовувати `AbortSignal.any(iterable)`?
+78. Які відмінності між методами `Promise`: `resolve` і `reject`?
+79. Як ми можемо обробляти помилки в `Promise.all`?
+80. Як ми можемо chain (послідовно композувати) асинхронні операції? (Будь ласка, запропонуйте випадки для тих контрактів, які знаєте)
+81. Яка роль event loop в асинхронному програмуванні?
+82. Як ми можемо обробляти тривалі асинхронні операції? (Процеси можуть припинити роботу, результати можуть застаріти тощо)
+83. Як ми можемо забезпечити ідемпотентність в асинхронних операціях і коли нам це потрібно?
+84. Чи можемо ми написати програму реального часу на JavaScript і асинхронному програмуванні?
+85. Як ми можемо забезпечити порядок асинхронних операцій? Будь ласка, підкажіть випадки, коли ми можемо мати проблеми.
+86. Як ми можемо працювати з асинхронним кодом у системах високої доступності?
+87. Що таке «observables» і як ми можемо їх використовувати в JavaScript?
+88. Які основні проблеми обробки стану в асинхронному коді в stateful системах?
+89. Коли ми можемо використовувати внутрішні асинхронні черги, а коли нам потрібні зовнішні системи черг?
+90. Як ми можемо використовувати асинхронні функції з кешуванням, memoization, та повторними обчисленнями для оновлення стану?
+91. Як ми можемо використовувати асинхронні функції з підключеннями до бази даних і які юз кейси?
+92. Як ми можемо відокремити асинхронний код від бізнес-логіки і чому нам потрібно це робити?
+93. Який вплив асинхронного коду на операції, пов'язані з процесором, а не на I/O операції?
+94. Які речі у асинхронному програмуванні потрібно робити з міркувань безпеки?
+95. Як ми можемо реалізувати чергу за пріоритетами для асинхронних завдань?
+96. Як ми можемо використовувати асинхронні функції з операціями файлової системи?
+97. Як ми можемо забезпечити атомарність в асинхронних операціях і для чого?
+98. Які компроміси між використанням `Promise` і `async/await`?
+99. Яка різниця між класичним асинхронним програмуванням і підходом RxJS?
+100. Що таке асинхронні колекції та як вони можуть покращити роботу розробника?
 
-## Links
+## Посилання
 
-- [❓ Сatalog of Interview Questions](https://github.com/tshemsedinov/Interview-Questions)
-- [🔁 Async 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/Async-2024.md)
-- [🚀 Node.js 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/NodeJS-2024.md)
-- [🤖 Self Assessment](https://github.com/HowProgrammingWorks/SelfAssessment)
+- [ Каталог питань на інтерв'ю](https://github.com/tshemsedinov/Interview-Questions)
+- [ Async 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/Async-2024.md)
+- [ Node.js 2024](https://github.com/HowProgrammingWorks/Index/blob/master/Courses/NodeJS-2024.md)
+- [ Self Assessment](https://github.com/HowProgrammingWorks/SelfAssessment)
