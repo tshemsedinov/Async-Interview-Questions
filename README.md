@@ -8,7 +8,7 @@
 6. When does try/catch capture async errors and when does it not?
 7. Which async abstraction supports the `captureRejections` flag, and what is it for?
 8. How can we avoid losing steps in the stack trace and improve debugging and understanding of control flow using async/await?
-9. How can we abort async operations?
+9. How can we cancell async operations?
 10. What is the difference between async contracts: callbacks, events, async/await, promises, etc.?
 11. How are async contracts (callbacks, events, async/await, promises) related, and is it possible to eliminate older ones?
 12. What is the difference between `Promise.all()` and `Promise.allSettled()`?
@@ -50,5 +50,44 @@
 48. What is the difference between creating a `Stream` with `extends` vs. passing `read`, `write`, or `transform` function to a revealing constructor?
 49. Why do we have three sets of timers: in the global context (e.g., `setTimeout`), `node:timers`, and `node:timers.promises`?
 50. What promisified APIs do you know, and how can we manually promisify other APIs?
-51. Tell us about debugging and testing async code.
-52. Why can't TypeScript describe async contracts in all aspects?
+51. Tell us about testing of asyncronous code.
+52. Why can't TypeScript describe async contracts in all aspects?53. How can we prevent memory leaks in async code?
+54. What are the best practices for managing concurrency in JavaScript?
+55. How can we use async/await with `EventEmitter`?
+56. What is the difference between `EventEmitter` and `EventTarget`?
+57. What is the role of the `await` keyword in async functions?
+58. What happens if we use `await` with non-promise values (or expressions)?
+59. How can we add timeouts in async operations (including `await` syntax)?
+60. What are the implications of the `process.nextTick` method?
+61. How can we create custom async iterables and what are their use cases?
+62. What are the advantages and disadvantages of using third-party async libraries like `Promise` polyfills and `async.js`?
+63. How can we handle async code in legacy systems?
+64. What is the difference between asynchronous, parallel, and I/O operations?
+65. How can we parallelize I/O operations effectively?
+66. How can we ensure thread safety in async programming?
+67. How are `Atomics` related to asynchronous and parallel programming? What are they used for?
+68. How can we optimize async code for performance?
+69. How can we handle retries (calls, calculations, resource access) in async programming?
+70. What are the common pitfalls of async programming?
+71. How can we use async functions with `Array.prototype.map`?
+72. How can we debug async code effectively?
+73. How can we ensure data consistency in async operations?
+74. What are the benefits of using `async/await` over callbacks?
+75. Which operations can't be rewritten from callbacks to `async/await` syntax (but are possible with `Promises`)?
+76. Propose use cases for `AbortSignal.timeout()`. Which well-known APIs support it?
+77. Where and for what purposes can we use `AbortSignal.any(iterable)`?
+78. What are the differences between `Promise` methods: `resolve` and `reject`?
+79. How can we handle errors in `Promise.all`?
+80. How can we chain async operations? (Please propose cases for as many contracts as you know)
+81. What is the role of the event loop in async programming?
+82. How can we handle long-running async operations? (Processes may exit, results may become obsolete, etc.)
+83. How can we ensure idempotency in async operations and when do we need it?
+84. Can we write a real-time application in JavaScript and asynchronous programming?
+85. How can we ensure the order of async operations? Please suggest cases in which we might experience problems.
+86. How can we handle async code in a high-availability system?
+87. What are observables and how can we use them in JavaScript?
+88. What are the main problems of handling state in asynchronous code in a stateful application?
+89. When can we use internal async queues and when do we need external queue systems?
+90. How can we use async functions with caching, memoization, and recalculations on state updates?
+91. How can we use async functions with database connections and what are the use cases?
+92. How can we separate async code from business logic and why might we want to do this?
