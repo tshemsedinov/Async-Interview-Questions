@@ -91,3 +91,11 @@
 90. How can we use async functions with caching, memoization, and recalculations on state updates?
 91. How can we use async functions with database connections and what are the use cases?
 92. How can we separate async code from business logic and why might we want to do this?
+93. What is the impact of async code on CPU-bound vs I/O-bound operations?
+94. What are the security considerations in async programming?
+95. How can we implement a priority queue for async tasks?
+96. How can we use async functions with file system operations?
+97. How can we ensure atomicity in async operations and what for?
+98. What are the trade-offs between using `Promise` and `async/await`?
+99. What is the difference between simple async programming and the RxJS approach?
+100. What are async collections and how can they improve developer experience?
